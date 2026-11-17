@@ -1,10 +1,5 @@
 # Professor Application Tracker (Dioxus edition)
 
-The same tracker as the egui version, with the interface rebuilt in
-[Dioxus](https://dioxuslabs.com) (Rust, desktop) and styled with CSS: cards, soft
-shadows, gradient accents, status pills, colour-coded deadlines, blurred modal
-dialogs and a hover-linked pie chart. **No features were added or removed.**
-
 ## What it does
 
 - Add, edit and delete applications (delete asks for confirmation)
@@ -42,19 +37,17 @@ while (about 8 minutes on a single-core machine). Later builds are fast.
 
 ## Your data
 
-Identical to the egui version: the database lives in a per-user data folder (no
-root, no `chmod 777`), or at `PROFESSOR_TRACKER_DB` if you set it. The table layout
-matches the original Python app and the egui version, so one database file works
-with all three.
+The database lives in a per-user data folder (no
+root, no `chmod 777`), or at `APPLICATION_TRACKER_DB` if you set it.
 
 | Platform | Default database location |
 |---|---|
-| Linux | `~/.local/share/professor-tracker/professor_applications.db` |
-| macOS | `~/Library/Application Support/professor-tracker/professor_applications.db` |
-| Windows | `%APPDATA%\professor-tracker\data\professor_applications.db` |
+| Linux | `~/.local/share/abroad-application-tracker/abroad_applications.db` |
+| macOS | `~/Library/Application Support/abroad-application-tracker/abroad_applications.db` |
+| Windows | `%APPDATA%\abroad-application-tracker\data\abroad_applications.db` |
 
 CSV exports go to your Documents folder (home folder if there is none) as
-`professor_applications_YYYYMMDD_HHMMSS.csv`; existing files are never overwritten.
+`abroad_applications_YYYYMMDD_HHMMSS.csv`; existing files are never overwritten.
 
 ## Security notes
 
@@ -79,9 +72,6 @@ src/
   model.rs  db.rs  search.rs  reminders.rs  export.rs  sort.rs  stats.rs  error.rs
                 the logic modules, unchanged from the egui version
 ```
-
-Only `ui.rs`, `store.rs`, `main.rs` and the stylesheet differ from the egui
-version. To restyle the app, edit `assets/style.css` and rebuild.
 
 ## Notes on how inputs work
 
