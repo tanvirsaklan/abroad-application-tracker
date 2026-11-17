@@ -13,7 +13,7 @@ use rusqlite::{params, Connection, Row};
 use crate::error::{AppError, Result};
 use crate::model::{Application, ApplicationInput, Response, Status, DATE_FORMAT};
 
-pub const DB_ENV_VAR: &str = "PROFESSOR_TRACKER_DB";
+pub const DB_ENV_VAR: &str = "APPLICATION_TRACKER_DB";
 const DB_FILE_NAME: &str = "abroad_applications.db";
 
 /// Where the database lives: `$PROFESSOR_TRACKER_DB` if set, otherwise the
@@ -22,7 +22,7 @@ pub fn default_db_path() -> PathBuf {
     if let Some(custom) = std::env::var_os(DB_ENV_VAR) {
         return PathBuf::from(custom);
     }
-    ProjectDirs::from("", "", "professor-tracker")
+    ProjectDirs::from("", "", "abroad-application-tracker")
         .map(|dirs| dirs.data_dir().join(DB_FILE_NAME))
         .unwrap_or_else(|| PathBuf::from(DB_FILE_NAME))
 }
